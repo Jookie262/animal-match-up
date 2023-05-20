@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.wajahatkarim3.easyflipview.EasyFlipView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardCornerRadius="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/grey"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/front_img"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/monkey"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardCornerRadius="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/grey"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/back_img"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/star"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</com.wajahatkarim3.easyflipview.EasyFlipView>
+
