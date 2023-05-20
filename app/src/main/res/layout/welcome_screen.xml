@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WelcomeScreen"
+    android:background="@drawable/background"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/animal_text"
+            android:layout_width="match_parent"
+            android:layout_height="145dp"
+            android:src="@drawable/animal_text"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:src="@drawable/match_up_text"
+            android:layout_marginTop="-30dp"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/play_button"
+            android:layout_gravity="center"
+            android:layout_marginTop="70dp"
+            android:background="?android:selectableItemBackground"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="By: Jookie262"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:fontFamily="@font/baloo2_bold"
+            android:textSize="24dp"
+            android:layout_marginTop="60dp"/>
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>
