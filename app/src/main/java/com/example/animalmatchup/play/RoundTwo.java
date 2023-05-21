@@ -17,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.animalmatchup.R;
-import com.example.animalmatchup.adapter.CardRecyclerViewAdapter;
+import com.example.animalmatchup.adapter.CardAdapter;
 import com.example.animalmatchup.model.GameModel;
 import com.example.animalmatchup.model.PopulateCard;
 
@@ -48,8 +48,8 @@ public class RoundTwo extends Fragment {
         backBtn = view.findViewById(R.id.back_btn);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
         PopulateCard populateCard = new PopulateCard();
-        CardRecyclerViewAdapter cardRecyclerViewAdapter = new CardRecyclerViewAdapter(populateCard.populateCard(), getContext(), gameModel, gameScore, populateCard.getTotalAnimals(), getFragmentManager(), "Round 2");
-        recyclerView.setAdapter(cardRecyclerViewAdapter);
+        CardAdapter cardAdapter = new CardAdapter(populateCard.populateCard(), getContext(), gameModel, gameScore, populateCard.getTotalAnimals(), getFragmentManager(), "Round 2");
+        recyclerView.setAdapter(cardAdapter);
         gameScore.setText(String.valueOf(gameModel.getScore()));
 
         backBtn.setOnClickListener(new View.OnClickListener() {

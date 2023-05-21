@@ -1,19 +1,13 @@
 package com.example.animalmatchup.adapter;
 
 import android.content.Context;
-import android.graphics.Paint;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,8 +19,7 @@ import com.wajahatkarim3.easyflipview.EasyFlipView;
 
 import java.util.ArrayList;
 
-public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerViewAdapter.ViewHolder>{
-
+public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
     private ArrayList<CardModel> mData;
     private ArrayList<EasyFlipView> flipCards;
     private ArrayList<String> names;
@@ -34,12 +27,10 @@ public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerVi
     Context context;
     TextView gameScore;
     int totalCard;
-
     String fragment_round_num;
-
     FragmentManager fragment;
 
-    public CardRecyclerViewAdapter(ArrayList<CardModel> mData, Context context, GameModel gameModel, TextView gameScore, int totalCard, FragmentManager fragment, String fragment_round_num) {
+    public CardAdapter(ArrayList<CardModel> mData, Context context, GameModel gameModel, TextView gameScore, int totalCard, FragmentManager fragment, String fragment_round_num){
         this.mData = mData;
         this.context = context;
         this.gameModel = gameModel;
@@ -53,24 +44,29 @@ public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerVi
 
     @NonNull
     @Override
-    public CardRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CardHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card, parent, false);
-        return new ViewHolder(view);
+        return new CardHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CardHolder holder, int position) {
         CardModel model = mData.get(position);
         holder.getBackImage().setImageResource(model.getBack_img());
         holder.getFrontImage().setImageResource(model.getImg());
         Handler handler = new Handler();
+        gameLogic(holder.getEasyFlipView(), handler, model);
+    }
 
+    @Override
+    public int getItemCount() {
+        return mData.size();
+    }
 
-
-        holder.getEasyFlipView().setOnFlipListener(new EasyFlipView.OnFlipAnimationListener() {
+    public void gameLogic(EasyFlipView flipView, Handler handler, CardModel model){
+        flipView.setOnFlipListener(new EasyFlipView.OnFlipAnimationListener() {
             @Override
             public void onViewFlipCompleted(EasyFlipView easyFlipView, EasyFlipView.FlipState newCurrentSide) {
-
                 if(easyFlipView.isBackSide()){
                     flipCards.add(easyFlipView);
                     names.add(model.getName());
@@ -124,37 +120,5 @@ public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerVi
                 }
             }
         });
-    }
-
-
-    @Override
-    public int getItemCount() {
-        return mData.size();
-    }
-
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        private final ImageView backImage;
-        private final ImageView frontImage;
-        private final EasyFlipView easyFlipView;
-
-        public ViewHolder(View view) {
-            super(view);
-            backImage = view.findViewById(R.id.back_img);
-            frontImage = view.findViewById(R.id.front_img);
-            easyFlipView = view.findViewById(R.id.card_flip);
-        }
-
-        public ImageView getBackImage() {
-            return backImage;
-        }
-
-        public ImageView getFrontImage() {
-            return frontImage;
-        }
-
-        public EasyFlipView getEasyFlipView() {
-            return easyFlipView;
-        }
-
     }
 }
