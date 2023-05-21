@@ -32,10 +32,10 @@
                     android:elevation="10dp"/>
 
                 <ImageView
-                    android:id="@+id/refresh_btn"
+                    android:id="@+id/info_btn"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/refresh"
+                    android:src="@drawable/info"
                     android:layout_centerVertical="true"
                     android:layout_alignParentEnd="true"
                     android:elevation="10dp"/>

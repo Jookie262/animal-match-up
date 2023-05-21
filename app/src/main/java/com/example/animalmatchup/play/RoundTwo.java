@@ -1,9 +1,11 @@
 package com.example.animalmatchup.play;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,7 +26,7 @@ public class RoundTwo extends Fragment {
     RecyclerView recyclerView;
     GameModel gameModel;
     TextView gameScore;
-    ImageView backBtn;
+    ImageView backBtn, infoBtn;
 
     public RoundTwo(GameModel gameModel){
         this.gameModel = gameModel;
@@ -42,6 +44,7 @@ public class RoundTwo extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.animals_card);
         gameScore = view.findViewById(R.id.game_score);
+        infoBtn = view.findViewById(R.id.info_btn);
         backBtn = view.findViewById(R.id.back_btn);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
         PopulateCard populateCard = new PopulateCard();
@@ -55,5 +58,36 @@ public class RoundTwo extends Fragment {
                 getActivity().finish();
             }
         });
+
+        infoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                infoBox();
+            }
+        });
+    }
+
+    private void infoBox(){
+        // Create the object of AlertDialog Builder class
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+
+        // Set the message show for the Alert time
+        builder.setMessage("A Task Performance in Mobile App that aims to develop a simple mobile game like Memory Game");
+
+        // Set Alert Title
+        builder.setTitle("Animal Match Up");
+
+        // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+        builder.setCancelable(false);
+
+        // Set the positive button with yes name Lambda OnClickListener method is use of DialogInterface interface.
+        builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
+            // When the user click yes button then app will close
+        });
+
+        // Create the Alert dialog
+        AlertDialog alertDialog = builder.create();
+        // Show the Alert Dialog box
+        alertDialog.show();
     }
 }
