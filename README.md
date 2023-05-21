@@ -16,19 +16,19 @@ The scoring system in the game is straightforward: correctly guessing a pair awa
 
 ## **Screen Shots** 📷
 <p float="center">
-	<img src = "screenshot/1.png" width="220">
-	<img src = "screenshot/2.png" width="220">
-	<img src = "screenshot/3.png" width="220">
-	<img src = "screenshot/4.png" width="220">
-	<img src = "screenshot/5.png" width="220">
-	<img src = "screenshot/6.png" width="220">
+	<img src = "screenshot/1.png" width="230">
+	<img src = "screenshot/2.png" width="230">
+	<img src = "screenshot/3.png" width="230">
+	<img src = "screenshot/4.png" width="230">
+	<img src = "screenshot/5.png" width="230">
+	<img src = "screenshot/6.png" width="230">
 </p>
 
 ## **Video** 🎥
 https://github.com/Jookie262/animal-match-up/assets/62915062/844c26a8-14ed-4787-804c-a985e8c1e07d
 
 ## **Special Thanks** 💖
-We would like to express my sincere appreciation to Wajahat Karim (author of [EasyFlipView](https://github.com/wajahatkarim3/EasyFlipView)) for providing me with the incredible EasyFlipView library. It has been instrumental in making my simple project a success and adding an engaging flipping animation to my application.
+I would like to express my sincere appreciation to Wajahat Karim (author of [EasyFlipView](https://github.com/wajahatkarim3/EasyFlipView)) for providing me with the incredible EasyFlipView library. It has been instrumental in making my simple project a success and adding an engaging flipping animation to my application.
 						 
 ## **Contribution** 🔥
 If you wish to help improve this project, fork this repo and submit your own pull request. If you discover a problem with this project, please report it to the issue page. Thank you very much   😊.
