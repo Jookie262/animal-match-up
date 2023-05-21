@@ -30,6 +30,10 @@ public class PopulateCard {
         return duplicatedList;
     }
 
+    public int getTotalAnimals(){
+        return singleAnimal().size();
+    }
+
     public ArrayList<CardModel> populateCard(){
         return shuffleDuplicateAnimals(singleAnimal());
     }

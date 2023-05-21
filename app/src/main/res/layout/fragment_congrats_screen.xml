@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".play.RoundOne"
+    tools:context=".play.CongratsScreen"
     android:background="@drawable/background">
 
     <LinearLayout
@@ -32,13 +32,6 @@
                     android:elevation="10dp"/>
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/round_1"
-                    android:layout_centerVertical="true"
-                    android:layout_centerInParent="true"/>
-
-                <ImageView
                     android:id="@+id/refresh_btn"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
@@ -51,23 +44,28 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/game_score"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/baloo2_bold"
-            android:text="0"
+            android:layout_height="match_parent"
             android:gravity="center"
-            android:textColor="@color/white"
-            android:textSize="60dp"
-            android:layout_marginTop="-10dp"
-            />
+            android:orientation="vertical"
+            android:layout_marginTop="-150dp">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:padding="8dp"
-            android:id="@+id/animals_card"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:src="@drawable/congrats" />
+
+            <ImageView
+                android:layout_marginTop="5dp"
+                android:id="@+id/next_level_btn"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:src="@drawable/next_level_btn"/>
+
+        </LinearLayout>
+
+
 
     </LinearLayout>
 

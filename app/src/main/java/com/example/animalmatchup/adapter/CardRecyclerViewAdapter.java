@@ -13,11 +13,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.animalmatchup.R;
 import com.example.animalmatchup.model.CardModel;
 import com.example.animalmatchup.model.GameModel;
+import com.example.animalmatchup.play.CongratsScreen;
 import com.wajahatkarim3.easyflipview.EasyFlipView;
 
 import java.util.ArrayList;
@@ -30,12 +33,17 @@ public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerVi
     GameModel gameModel;
     Context context;
     TextView gameScore;
+    int totalCard;
 
-    public CardRecyclerViewAdapter(ArrayList<CardModel> mData, Context context, GameModel gameModel, TextView gameScore) {
+    FragmentManager fragment;
+
+    public CardRecyclerViewAdapter(ArrayList<CardModel> mData, Context context, GameModel gameModel, TextView gameScore, int totalCard, FragmentManager fragment) {
         this.mData = mData;
         this.context = context;
         this.gameModel = gameModel;
         this.gameScore = gameScore;
+        this.totalCard = totalCard;
+        this.fragment = fragment;
         flipCards = new ArrayList<>();
         names = new ArrayList<>();
     }
@@ -54,6 +62,8 @@ public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerVi
         holder.getFrontImage().setImageResource(model.getImg());
         Handler handler = new Handler();
 
+
+
         holder.getEasyFlipView().setOnFlipListener(new EasyFlipView.OnFlipAnimationListener() {
             @Override
             public void onViewFlipCompleted(EasyFlipView easyFlipView, EasyFlipView.FlipState newCurrentSide) {
@@ -68,6 +78,7 @@ public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerVi
 
                 if (flipCards.size() == 2) {
                     if(names.get(0).equals(names.get(1))){
+                        totalCard--;
                         gameModel.setScore(+10);
 
                         handler.postDelayed(new Runnable() {
@@ -95,6 +106,15 @@ public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerVi
                     }
                 }
                 gameScore.setText(String.valueOf(gameModel.getScore()));
+
+                if(totalCard == 0){
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            fragment.beginTransaction().replace(R.id.fragment_container, new CongratsScreen()).commit();
+                        }
+                    }, 300);
+                }
             }
         });
     }

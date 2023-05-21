@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.animalmatchup.R;
@@ -23,6 +24,7 @@ public class RoundOne extends Fragment {
     RecyclerView recyclerView;
     GameModel gameModel;
     TextView gameScore;
+    ImageView backBtn;
 
     public RoundOne(GameModel gameModel){
         this.gameModel = gameModel;
@@ -39,9 +41,17 @@ public class RoundOne extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.animals_card);
         gameScore = view.findViewById(R.id.game_score);
+        backBtn = view.findViewById(R.id.back_btn);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
         PopulateCard populateCard = new PopulateCard();
-        CardRecyclerViewAdapter cardRecyclerViewAdapter = new CardRecyclerViewAdapter(populateCard.populateCard(), getContext(), gameModel, gameScore);
+        CardRecyclerViewAdapter cardRecyclerViewAdapter = new CardRecyclerViewAdapter(populateCard.populateCard(), getContext(), gameModel, gameScore, populateCard.getTotalAnimals(), getFragmentManager());
         recyclerView.setAdapter(cardRecyclerViewAdapter);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().finish();
+            }
+        });
     }
 }
