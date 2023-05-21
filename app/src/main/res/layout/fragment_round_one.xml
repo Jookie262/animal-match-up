@@ -60,14 +60,11 @@
             android:layout_marginTop="-10dp"
             />
 
-        <GridView
+        <androidx.recyclerview.widget.RecyclerView
             android:padding="8dp"
             android:id="@+id/animals_card"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:numColumns="3"
-            android:horizontalSpacing="10dp"
-            android:verticalSpacing="10dp"/>
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 
