@@ -23,6 +23,7 @@
                 android:layout_height="match_parent">
 
                 <ImageView
+                    android:id="@+id/back_btn"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@drawable/back"
@@ -33,11 +34,12 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/round_1"
+                    android:src="@drawable/round_2"
                     android:layout_centerVertical="true"
                     android:layout_centerInParent="true"/>
 
                 <ImageView
+                    android:id="@+id/refresh_btn"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@drawable/refresh"
@@ -50,22 +52,21 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/game_score"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/baloo2_bold"
-            android:text="100"
+            android:text="0"
             android:gravity="center"
             android:textColor="@color/white"
             android:textSize="60dp"
             android:layout_marginTop="-10dp"/>
 
-        <GridView
+        <androidx.recyclerview.widget.RecyclerView
+            android:padding="8dp"
             android:id="@+id/animals_card"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:numColumns="3"
-            android:horizontalSpacing="2dp"
-            android:verticalSpacing="2dp"/>
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 

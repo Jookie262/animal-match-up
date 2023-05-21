@@ -35,14 +35,17 @@ public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerVi
     TextView gameScore;
     int totalCard;
 
+    String fragment_round_num;
+
     FragmentManager fragment;
 
-    public CardRecyclerViewAdapter(ArrayList<CardModel> mData, Context context, GameModel gameModel, TextView gameScore, int totalCard, FragmentManager fragment) {
+    public CardRecyclerViewAdapter(ArrayList<CardModel> mData, Context context, GameModel gameModel, TextView gameScore, int totalCard, FragmentManager fragment, String fragment_round_num) {
         this.mData = mData;
         this.context = context;
         this.gameModel = gameModel;
         this.gameScore = gameScore;
         this.totalCard = totalCard;
+        this.fragment_round_num = fragment_round_num;
         this.fragment = fragment;
         flipCards = new ArrayList<>();
         names = new ArrayList<>();
@@ -111,7 +114,11 @@ public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerVi
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            fragment.beginTransaction().replace(R.id.fragment_container, new CongratsScreen()).commit();
+                            if(fragment_round_num.equals("Round 1")){
+                                fragment.beginTransaction().replace(R.id.fragment_container, new CongratsScreen(gameModel, "Round 1")).commit();
+                            } else if(fragment_round_num.equals("Round 2")){
+                                fragment.beginTransaction().replace(R.id.fragment_container, new CongratsScreen(gameModel, "Round 2")).commit();
+                            }
                         }
                     }, 300);
                 }

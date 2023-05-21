@@ -51,6 +51,16 @@
             android:orientation="vertical"
             android:layout_marginTop="-150dp">
 
+            <TextView
+                android:id="@+id/final_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Final Score: 20"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="30dp"
+                android:fontFamily="@font/baloo2_bold"/>
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="110dp"

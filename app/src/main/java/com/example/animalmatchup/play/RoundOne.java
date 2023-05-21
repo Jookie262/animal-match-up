@@ -44,7 +44,7 @@ public class RoundOne extends Fragment {
         backBtn = view.findViewById(R.id.back_btn);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
         PopulateCard populateCard = new PopulateCard();
-        CardRecyclerViewAdapter cardRecyclerViewAdapter = new CardRecyclerViewAdapter(populateCard.populateCard(), getContext(), gameModel, gameScore, populateCard.getTotalAnimals(), getFragmentManager());
+        CardRecyclerViewAdapter cardRecyclerViewAdapter = new CardRecyclerViewAdapter(populateCard.populateCard(), getContext(), gameModel, gameScore, populateCard.getTotalAnimals(), getFragmentManager(), "Round 1");
         recyclerView.setAdapter(cardRecyclerViewAdapter);
 
         backBtn.setOnClickListener(new View.OnClickListener() {
