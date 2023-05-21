@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.animalmatchup.R;
 import com.example.animalmatchup.model.CardModel;
+import com.example.animalmatchup.model.GameModel;
 import com.wajahatkarim3.easyflipview.EasyFlipView;
 
 import java.util.ArrayList;
@@ -25,11 +27,15 @@ public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerVi
     private ArrayList<CardModel> mData;
     private ArrayList<EasyFlipView> flipCards;
     private ArrayList<String> names;
+    GameModel gameModel;
     Context context;
+    TextView gameScore;
 
-    public CardRecyclerViewAdapter(ArrayList<CardModel> mData, Context context) {
+    public CardRecyclerViewAdapter(ArrayList<CardModel> mData, Context context, GameModel gameModel, TextView gameScore) {
         this.mData = mData;
         this.context = context;
+        this.gameModel = gameModel;
+        this.gameScore = gameScore;
         flipCards = new ArrayList<>();
         names = new ArrayList<>();
     }
@@ -62,6 +68,8 @@ public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerVi
 
                 if (flipCards.size() == 2) {
                     if(names.get(0).equals(names.get(1))){
+                        gameModel.setScore(+10);
+
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
@@ -73,6 +81,7 @@ public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerVi
                             }
                         }, 200);
                     } else {
+                        gameModel.setScore(-5);
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
@@ -85,6 +94,7 @@ public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerVi
                         }, 200);
                     }
                 }
+                gameScore.setText(String.valueOf(gameModel.getScore()));
             }
         });
     }

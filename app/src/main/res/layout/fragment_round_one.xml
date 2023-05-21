@@ -50,6 +50,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/game_score"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/baloo2_bold"
