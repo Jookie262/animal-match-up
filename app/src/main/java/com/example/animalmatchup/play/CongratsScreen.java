@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.example.animalmatchup.PlayScreen;
 import com.example.animalmatchup.R;
+import com.example.animalmatchup.game.InfoBox;
 import com.example.animalmatchup.model.GameModel;
 
 public class CongratsScreen extends Fragment {
@@ -24,6 +25,7 @@ public class CongratsScreen extends Fragment {
     TextView finalScore;
     GameModel gameModel;
     String fragment_round_num;
+    InfoBox infoBox;
 
     public CongratsScreen(GameModel gameModel, String fragment_round_num){
         this.gameModel = gameModel;
@@ -43,6 +45,7 @@ public class CongratsScreen extends Fragment {
         nextLevelBtn = view.findViewById(R.id.next_level_btn);
         infoBtn = view.findViewById(R.id.info_btn);
         finalScore = view.findViewById(R.id.final_score);
+        infoBox = new InfoBox(getContext());
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +57,7 @@ public class CongratsScreen extends Fragment {
         infoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                infoBox();
+                infoBox.infoBox();
             }
         });
 
@@ -78,29 +81,5 @@ public class CongratsScreen extends Fragment {
                 }
             });
         }
-    }
-
-    private void infoBox(){
-        // Create the object of AlertDialog Builder class
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-
-        // Set the message show for the Alert time
-        builder.setMessage("A Task Performance in Mobile App that aims to develop a simple mobile game like Memory Game");
-
-        // Set Alert Title
-        builder.setTitle("Animal Match Up");
-
-        // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
-        builder.setCancelable(false);
-
-        // Set the positive button with yes name Lambda OnClickListener method is use of DialogInterface interface.
-        builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
-            // When the user click yes button then app will close
-        });
-
-        // Create the Alert dialog
-        AlertDialog alertDialog = builder.create();
-        // Show the Alert Dialog box
-        alertDialog.show();
     }
 }
