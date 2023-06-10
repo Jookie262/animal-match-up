@@ -5,12 +5,12 @@ import android.widget.ImageView;
 public class CardModel {
     private String name;
     private int back_img;
-    private int img;
+    private int front_img;
 
-    public CardModel(String name, int back_img, int img) {
+    public CardModel(String name, int back_img, int front_img) {
         this.name = name;
         this.back_img = back_img;
-        this.img = img;
+        this.front_img = front_img;
     }
 
     public String getName() {
@@ -29,11 +29,11 @@ public class CardModel {
         this.back_img = back_img;
     }
 
-    public int getImg() {
-        return img;
+    public int getFront_img() {
+        return front_img;
     }
 
-    public void setImg(int img) {
-        this.img = img;
+    public void setFront_img(int img) {
+        this.front_img = img;
     }
 }

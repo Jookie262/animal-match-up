@@ -19,7 +19,7 @@ import android.widget.TextView;
 import com.example.animalmatchup.R;
 import com.example.animalmatchup.adapter.CardAdapter;
 import com.example.animalmatchup.model.GameModel;
-import com.example.animalmatchup.model.PopulateCard;
+import com.example.animalmatchup.game.PopulateCard;
 
 public class RoundTwo extends Fragment {
 

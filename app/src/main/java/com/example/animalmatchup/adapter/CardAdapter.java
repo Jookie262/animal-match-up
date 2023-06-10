@@ -57,7 +57,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
     public void onBindViewHolder(@NonNull CardHolder holder, int position) {
         CardModel model = mData.get(position);
         holder.getBackImage().setImageResource(model.getBack_img());
-        holder.getFrontImage().setImageResource(model.getImg());
+        holder.getFrontImage().setImageResource(model.getFront_img());
         Handler handler = new Handler();
         gameLogic(holder.getEasyFlipView(), handler, model, scoreAnimation);
     }
