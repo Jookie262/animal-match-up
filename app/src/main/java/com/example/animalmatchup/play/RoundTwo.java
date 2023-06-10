@@ -1,11 +1,9 @@
 package com.example.animalmatchup.play;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.animalmatchup.R;
-import com.example.animalmatchup.adapter.CardAdapter;
+import com.example.animalmatchup.adapter.gameadapter.CardAdapter;
 import com.example.animalmatchup.game.InfoBox;
 import com.example.animalmatchup.model.GameModel;
 import com.example.animalmatchup.game.PopulateCard;

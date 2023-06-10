@@ -1,4 +1,4 @@
-package com.example.animalmatchup.adapter;
+package com.example.animalmatchup.adapter.gameadapter;
 
 import android.view.View;
 import android.widget.ImageView;

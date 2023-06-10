@@ -1,4 +1,4 @@
-package com.example.animalmatchup.adapter;
+package com.example.animalmatchup.adapter.gameadapter;
 
 import android.content.Context;
 import android.os.Handler;
