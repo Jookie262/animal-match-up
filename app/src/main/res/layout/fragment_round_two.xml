@@ -51,16 +51,41 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/game_score"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/baloo2_bold"
-            android:text="0"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:textSize="60dp"
-            android:layout_marginTop="-10dp"/>
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/game_score"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo2_bold"
+                    android:text="0"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="60dp"
+                    android:layout_marginTop="-10dp"/>
+
+                <TextView
+                    android:id="@+id/anim_score"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo2_bold"
+                    android:text=""
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="22dp"
+                    android:layout_marginTop="55dp" />
+
+            </FrameLayout>
+
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:padding="8dp"

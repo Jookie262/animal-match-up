@@ -25,7 +25,7 @@ public class RoundOne extends Fragment {
 
     RecyclerView recyclerView;
     GameModel gameModel;
-    TextView gameScore;
+    TextView gameScore, animScore;
     ImageView backBtn, infoBtn;
 
     public RoundOne(GameModel gameModel){
@@ -44,10 +44,11 @@ public class RoundOne extends Fragment {
         recyclerView = view.findViewById(R.id.animals_card);
         infoBtn = view.findViewById(R.id.info_btn);
         gameScore = view.findViewById(R.id.game_score);
+        animScore = view.findViewById(R.id.anim_score);
         backBtn = view.findViewById(R.id.back_btn);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
         PopulateCard populateCard = new PopulateCard();
-        CardAdapter cardAdapter = new CardAdapter(populateCard.populateCard(), getContext(), gameModel, gameScore, populateCard.getTotalAnimals(), getFragmentManager(), "Round 1");
+        CardAdapter cardAdapter = new CardAdapter(populateCard.populateCard(), getContext(), gameModel, gameScore, animScore, populateCard.getTotalAnimals(), getFragmentManager(), "Round 1");
         recyclerView.setAdapter(cardAdapter);
 
         backBtn.setOnClickListener(new View.OnClickListener() {

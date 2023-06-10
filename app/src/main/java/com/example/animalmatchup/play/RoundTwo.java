@@ -25,7 +25,7 @@ public class RoundTwo extends Fragment {
 
     RecyclerView recyclerView;
     GameModel gameModel;
-    TextView gameScore;
+    TextView gameScore, animScore;
     ImageView backBtn, infoBtn;
 
     public RoundTwo(GameModel gameModel){
@@ -46,9 +46,10 @@ public class RoundTwo extends Fragment {
         gameScore = view.findViewById(R.id.game_score);
         infoBtn = view.findViewById(R.id.info_btn);
         backBtn = view.findViewById(R.id.back_btn);
+        animScore = view.findViewById(R.id.anim_score);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
         PopulateCard populateCard = new PopulateCard();
-        CardAdapter cardAdapter = new CardAdapter(populateCard.populateCard(), getContext(), gameModel, gameScore, populateCard.getTotalAnimals(), getFragmentManager(), "Round 2");
+        CardAdapter cardAdapter = new CardAdapter(populateCard.populateCard(), getContext(), gameModel, gameScore, animScore, populateCard.getTotalAnimals(), getFragmentManager(), "Round 2");
         recyclerView.setAdapter(cardAdapter);
         gameScore.setText(String.valueOf(gameModel.getScore()));
 

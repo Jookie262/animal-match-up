@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.animalmatchup.R;
+import com.example.animalmatchup.game.ScoreAnimation;
 import com.example.animalmatchup.model.CardModel;
 import com.example.animalmatchup.model.GameModel;
 import com.example.animalmatchup.play.CongratsScreen;
@@ -25,21 +26,24 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
     private ArrayList<String> names;
     GameModel gameModel;
     Context context;
-    TextView gameScore;
+    TextView gameScore, animScore;
     int totalCard;
     String fragment_round_num;
     FragmentManager fragment;
+    ScoreAnimation scoreAnimation;
 
-    public CardAdapter(ArrayList<CardModel> mData, Context context, GameModel gameModel, TextView gameScore, int totalCard, FragmentManager fragment, String fragment_round_num){
+    public CardAdapter(ArrayList<CardModel> mData, Context context, GameModel gameModel, TextView gameScore, TextView animScore, int totalCard, FragmentManager fragment, String fragment_round_num){
         this.mData = mData;
         this.context = context;
         this.gameModel = gameModel;
         this.gameScore = gameScore;
+        this.animScore = animScore;
         this.totalCard = totalCard;
         this.fragment_round_num = fragment_round_num;
         this.fragment = fragment;
         flipCards = new ArrayList<>();
         names = new ArrayList<>();
+        scoreAnimation = new ScoreAnimation();
     }
 
     @NonNull
@@ -55,7 +59,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
         holder.getBackImage().setImageResource(model.getBack_img());
         holder.getFrontImage().setImageResource(model.getImg());
         Handler handler = new Handler();
-        gameLogic(holder.getEasyFlipView(), handler, model);
+        gameLogic(holder.getEasyFlipView(), handler, model, scoreAnimation);
     }
 
     @Override
@@ -63,7 +67,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
         return mData.size();
     }
 
-    public void gameLogic(EasyFlipView flipView, Handler handler, CardModel model){
+    public void gameLogic(EasyFlipView flipView, Handler handler, CardModel model, ScoreAnimation scoreAnimation){
         flipView.setOnFlipListener(new EasyFlipView.OnFlipAnimationListener() {
             @Override
             public void onViewFlipCompleted(EasyFlipView easyFlipView, EasyFlipView.FlipState newCurrentSide) {
@@ -78,6 +82,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
                 if (flipCards.size() == 2) {
                     if(names.get(0).equals(names.get(1))){
                         totalCard--;
+                        scoreAnimation.animationScore(animScore, "+10");
                         gameModel.setScore(+10);
 
                         handler.postDelayed(new Runnable() {
@@ -91,6 +96,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
                             }
                         }, 200);
                     } else {
+                        scoreAnimation.animationScore(animScore, "-5");
                         gameModel.setScore(-5);
                         handler.postDelayed(new Runnable() {
                             @Override
@@ -104,7 +110,8 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
                         }, 200);
                     }
                 }
-                gameScore.setText(String.valueOf(gameModel.getScore()));
+                scoreAnimation.delaySetText(gameScore, String.valueOf(gameModel.getScore()));
+                //gameScore.setText(String.valueOf(gameModel.getScore()));
 
                 if(totalCard == 0){
                     handler.postDelayed(new Runnable() {
@@ -116,7 +123,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
                                 fragment.beginTransaction().replace(R.id.fragment_container, new CongratsScreen(gameModel, "Round 2")).commit();
                             }
                         }
-                    }, 300);
+                    }, 800);
                 }
             }
         });
