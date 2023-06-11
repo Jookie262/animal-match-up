@@ -1,9 +1,9 @@
 <h4 align=center>
     <img src="screenshot/banner.png" width=450">
     <br>
-    <img src="https://img.shields.io/badge/Subject-Mobile%20App-yellowgreen" alt="subject badge"/>
-    <img src="https://img.shields.io/badge/Version-2.0-green" alt="version badge"/>
-    <br>    
+    <img src="https://img.shields.io/badge/Subject-Mobile%20App-yellowgreen?style=for-the-badge" alt="subject badge"/>
+    <img src="https://img.shields.io/badge/Version-2.0-green?style=for-the-badge" alt="version badge"/>
+    <br><br>    
 <b> A Task Performance in Mobile App that aims to develop a simple mobile game like memory game. </b>
 </h4>
 
