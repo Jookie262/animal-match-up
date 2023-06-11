@@ -12,6 +12,9 @@
         android:theme="@style/Theme.AnimalMatchUp"
         tools:targetApi="31">
         <activity
+            android:name=".HighScoreScreen"
+            android:exported="false" />
+        <activity
             android:name=".PlayScreen"
             android:exported="false" />
         <activity

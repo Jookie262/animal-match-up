@@ -6,12 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.animalmatchup.R;
+import com.example.animalmatchup.WelcomeScreen;
+import com.example.animalmatchup.game.InfoBox;
 import com.example.animalmatchup.game.ScoreAnimation;
 import com.example.animalmatchup.model.CardModel;
 import com.example.animalmatchup.model.GameModel;
@@ -120,6 +123,8 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
                             if(fragment_round_num.equals("Round 1")){
                                 fragment.beginTransaction().replace(R.id.fragment_container, new CongratsScreen(gameModel, "Round 1")).commit();
                             } else if(fragment_round_num.equals("Round 2")){
+                                InfoBox infoBox = new InfoBox();
+                                infoBox.addNameScore(context, String.valueOf(gameModel.getScore()));
                                 fragment.beginTransaction().replace(R.id.fragment_container, new CongratsScreen(gameModel, "Round 2")).commit();
                             }
                         }

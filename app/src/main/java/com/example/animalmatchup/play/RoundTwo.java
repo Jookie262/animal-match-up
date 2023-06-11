@@ -47,7 +47,7 @@ public class RoundTwo extends Fragment {
         infoBtn = view.findViewById(R.id.info_btn);
         backBtn = view.findViewById(R.id.back_btn);
         animScore = view.findViewById(R.id.anim_score);
-        infoBox = new InfoBox(getContext());
+        infoBox = new InfoBox();
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
         PopulateCard populateCard = new PopulateCard();
         CardAdapter cardAdapter = new CardAdapter(populateCard.populateCard(), getContext(), gameModel, gameScore, animScore, populateCard.getTotalAnimals(), getFragmentManager(), "Round 2");
@@ -64,7 +64,7 @@ public class RoundTwo extends Fragment {
         infoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                infoBox.infoBox();
+                infoBox.infoBox(getContext());
             }
         });
     }

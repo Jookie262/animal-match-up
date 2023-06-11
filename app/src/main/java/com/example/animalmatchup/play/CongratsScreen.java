@@ -45,7 +45,7 @@ public class CongratsScreen extends Fragment {
         nextLevelBtn = view.findViewById(R.id.next_level_btn);
         infoBtn = view.findViewById(R.id.info_btn);
         finalScore = view.findViewById(R.id.final_score);
-        infoBox = new InfoBox(getContext());
+        infoBox = new InfoBox();
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +57,7 @@ public class CongratsScreen extends Fragment {
         infoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                infoBox.infoBox();
+                infoBox.infoBox(getContext());
             }
         });
 
