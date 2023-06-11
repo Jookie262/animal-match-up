@@ -3,7 +3,8 @@
     <br>
     <img src="https://img.shields.io/badge/Subject-Mobile%20App-yellowgreen?style=for-the-badge" alt="subject badge"/>
     <img src="https://img.shields.io/badge/Version-2.0-green?style=for-the-badge" alt="version badge"/>
-    <b> A Task Performance in Mobile App that aims to develop a simple mobile game like memory game. </b>
+    <br>    
+<b> A Task Performance in Mobile App that aims to develop a simple mobile game like memory game. </b>
 </h4>
 
 ## **Description** 🔥
