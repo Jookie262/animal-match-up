@@ -25,7 +25,7 @@ The scoring system in the game is straightforward: correctly guessing a pair awa
 </p>
 
 ## **Video** 🎥
-https://github.com/Jookie262/animal-match-up/assets/62915062/844c26a8-14ed-4787-804c-a985e8c1e07d
+https://github.com/Jookie262/animal-match-up/assets/62915062/15ffa033-a637-4384-9df6-44708e31dd5c
 
 ## **Special Thanks** 💖
 I would like to express my sincere appreciation to Wajahat Karim (author of [EasyFlipView](https://github.com/wajahatkarim3/EasyFlipView)) for providing me with the incredible EasyFlipView library. It has been instrumental in making my simple project a success and adding an engaging flipping animation to my application.
