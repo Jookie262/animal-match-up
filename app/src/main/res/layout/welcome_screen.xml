@@ -25,14 +25,31 @@
             android:src="@drawable/match_up_text"
             android:layout_marginTop="-30dp"/>
 
-        <ImageButton
-            android:id="@+id/play_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/play_button"
-            android:layout_gravity="center"
-            android:layout_marginTop="70dp"
-            android:background="?android:selectableItemBackground"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:layout_marginTop="15dp">
+
+            <ImageButton
+                android:id="@+id/play_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/play_button"
+                android:layout_gravity="center"
+                android:background="?android:selectableItemBackground"/>
+
+            <ImageButton
+                android:id="@+id/high_score_button"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:src="@drawable/trophy_button"
+                android:layout_gravity="center"
+                android:layout_marginTop="80dp"
+                android:layout_marginLeft="50dp"
+                android:scaleType="fitCenter"
+                android:background="?android:selectableItemBackground"/>
+
+        </FrameLayout>
 
         <TextView
             android:layout_width="match_parent"

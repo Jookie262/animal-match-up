@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".play.RoundOne"
+    tools:context=".HighScoreScreen"
     android:background="@drawable/background">
 
     <LinearLayout
@@ -34,9 +35,8 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/round_1"
-                    android:layout_centerVertical="true"
-                    android:layout_centerInParent="true"/>
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/high_score_txt" />
 
                 <ImageView
                     android:id="@+id/info_btn"
@@ -54,42 +54,34 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center">
+            android:orientation="vertical">
 
-            <FrameLayout
+            <TextView
+                android:id="@+id/highest_score_txt"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:textSize="100dp"
+                android:fontFamily="@font/baloo2_bold"/>
 
-                <TextView
-                    android:id="@+id/game_score"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/baloo2_bold"
-                    android:text="0"
-                    android:gravity="center"
-                    android:textColor="@color/white"
-                    android:textSize="60dp"
-                    android:layout_marginTop="-10dp"
-                    />
-
-                <TextView
-                    android:id="@+id/anim_score"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/baloo2_bold"
-                    android:text=""
-                    android:gravity="center"
-                    android:textColor="@color/white"
-                    android:textSize="22dp"
-                    android:layout_marginTop="55dp"
-                    />
-            </FrameLayout>
+            <TextView
+                android:id="@+id/highest_score_name_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Play a game"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_marginTop="-35dp"
+                android:textSize="32dp"
+                android:fontFamily="@font/baloo2_bold"/>
 
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:padding="8dp"
-            android:id="@+id/animals_card"
+            android:padding="10dp"
+            android:id="@+id/score_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 

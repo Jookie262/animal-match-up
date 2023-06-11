@@ -1,6 +1,7 @@
-package com.example.animalmatchup.model;
+package com.example.animalmatchup.game;
 
 import com.example.animalmatchup.R;
+import com.example.animalmatchup.model.CardModel;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,7 +24,7 @@ public class PopulateCard {
 
         for (CardModel animal : originalList) {
             duplicatedList.add(animal);
-            duplicatedList.add(new CardModel(animal.getName(), animal.getBack_img(), animal.getImg()));
+            duplicatedList.add(new CardModel(animal.getName(), animal.getBack_img(), animal.getFront_img()));
         }
 
         Collections.shuffle(duplicatedList);
