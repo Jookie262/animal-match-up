@@ -1,6 +1,8 @@
 <h4 align=center>
     <img src="screenshot/banner.png" width=450">
     <br>
+    <img src="https://img.shields.io/badge/Subject-Mobile%20App-yellowgreen?style=for-the-badge" alt="subject badge"/>
+    <img src="https://img.shields.io/badge/Version-2.0-green?style=for-the-badge" alt="version badge"/>
     <b> A Task Performance in Mobile App that aims to develop a simple mobile game like memory game. </b>
 </h4>
 
@@ -10,9 +12,6 @@ last pair has been picked up.
 
 ## **Scoring** 💯
 The scoring system in the game is straightforward: correctly guessing a pair awards an additional 10 points, while an incorrect guess results in a deduction of 5 points.
-| Correct | Wrong |
-| :---:   | :---: | 
-| + 10 points | -5 points |
 
 ## **Screen Shots** 📷
 <p float="center">
