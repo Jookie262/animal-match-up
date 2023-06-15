@@ -8,6 +8,12 @@ import java.util.Collections;
 
 public class PopulateCard {
 
+    int numCards;
+
+    public PopulateCard(int numCards){
+        this.numCards = numCards;
+    }
+
     public ArrayList<CardModel> singleAnimal(){
         ArrayList<CardModel> arrayList = new ArrayList<>();
         arrayList.add(new CardModel("monkey", R.drawable.star, R.drawable.monkey));
@@ -16,6 +22,11 @@ public class PopulateCard {
         arrayList.add(new CardModel("koala", R.drawable.star, R.drawable.koala));
         arrayList.add(new CardModel("rhino", R.drawable.star, R.drawable.rhino));
         arrayList.add(new CardModel("tiger", R.drawable.star, R.drawable.tiger));
+
+        if (arrayList.size() > numCards) {
+            arrayList.subList(numCards, arrayList.size()).clear();
+        }
+
         return arrayList;
     }
 
