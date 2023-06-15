@@ -68,10 +68,10 @@ public class InfoBox {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = editText.getEditText().getText().toString();
+                String name = editText.getEditText().getText().toString().trim();
                 scoreDB = new ScoreDB(context);
 
-                if(name.isEmpty() || name.length() > 10){
+                if(name.isEmpty() || name.length() > 10 || name.contains(" ")){
                     editText.setError("Please follow the instructions");
                 } else {
                     scoreDB.addScore(name, score);
