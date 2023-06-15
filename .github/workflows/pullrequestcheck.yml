@@ -21,7 +21,7 @@ jobs:
         distribution: 'adopt'
 
     - name: Build with Gradle
-      run: ./gradlew build
+      run: ./gradlew build --no-daemon
 
     - name: Run Code Quality Checks
       run: ./gradlew check
