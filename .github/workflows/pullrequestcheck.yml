@@ -18,10 +18,10 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: '11'
-        distribution: 'adopt'
+        distribution: 'wrapper'
 
     - name: Build with Gradle
-      run: bash ./gradlew build --no-daemon
+      run: ./gradlew build --no-daemon
 
     - name: Run Code Quality Checks
-      run: ./gradlew check
+      run: ./gradlew check --no-daemon
